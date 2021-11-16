@@ -3,7 +3,7 @@ import React from "react";
 
 export const PropertiesCard = ({ ppt }) => {
   return (
-    <div className="bg-white mx-2 md:m-0 rounded">
+    <div className="bg-white border mx-2 md:m-0 rounded">
       <div className="max-h-72 md:max-h-64 w-full overflow-hidden relative">
         <div className="w-full flex justify-between absolute py-4 px-4 z-index">
           <p className="px-2 text-center rounded bg-green-600 camelCase text-white ">
