@@ -1,0 +1,4 @@
+.bg-property-header {
+  background: linear-gradient(135deg, var(--bgshadow), var(--bgshadow1)),
+    url("../../Images/123.jpg") no-repeat center center/cover;
+}

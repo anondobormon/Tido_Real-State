@@ -31,6 +31,9 @@
 .hover-letter-space:hover {
   letter-spacing: 2px;
 }
+.sticky-content {
+  position: sticky;
+}
 .text-shorter {
   font-size: 15px;
   overflow: hidden;
