@@ -1,5 +1,6 @@
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import React, { useEffect, useState } from "react";
+import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { PropertiesCard } from "../Home/PropertiesCard";
 
@@ -17,7 +18,7 @@ export const Properties = () => {
   return (
     <div className="bg-gray-100">
       <PropertyHeader content={"Properties"} />
-      <div className="max-w-screen-2xl py-8 m-auto">
+      <div className="max-w-screen-2xl py-8 md:py-20 m-auto">
         <div className="flex justify-between items-center">
           <div>
             <p className="text-3xl font-bold">Property Summery</p>
@@ -32,7 +33,7 @@ export const Properties = () => {
             <ChevronDownIcon className="w-6" />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-2">
+        <div className="grid grid-cols-1 py-8 md:grid-cols-4 gap-2 my-2">
           {properties.map((property) => (
             <PropertiesCard ppt={property} />
           ))}
@@ -40,7 +41,11 @@ export const Properties = () => {
             <PropertiesCard ppt={property} />
           ))}
         </div>
+        <button className="mx-auto px-4 py-2 rounded text-white bg-pink-600">
+          Load More
+        </button>
       </div>
+      <Footer />
     </div>
   );
 };
