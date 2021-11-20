@@ -22,7 +22,7 @@ export const LoginResister = () => {
   return (
     <div>
       <PropertyHeader content={"Login/Resister"} />
-      <div className="max-w-screen-2xl m-auto py-8">
+      <div className="2xl:max-w-screen-2xl max-w-7xl m-auto py-8">
         <p className="text-3xl font-bold p-2 md:p-0">Login Here</p>
         <div className="w-24 ml-2 md:m-0 h-1 my-2 bg-primary"></div>
         <div className="md:w-2/4 w-full p-2 md:px-20 m-auto ">

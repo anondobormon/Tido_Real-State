@@ -1,4 +1,6 @@
+import { ArrowRightIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { PropertiesCard } from "./PropertiesCard";
 
 export const Properties = ({ category, property }) => {
@@ -12,11 +14,17 @@ export const Properties = ({ category, property }) => {
       <p className="text-base mb-4 md:mb-10 text-center">
         Lorem ipsum dolor sit amet consectetur.
       </p>
-      <div className="max-w-screen-2xl my-2 m-auto grid grid-cols-1 md:grid-cols-4 gap-2">
+      <div className="2xl:max-w-screen-2xl max-w-7xl my-2 m-auto grid grid-cols-1 md:grid-cols-4 gap-2">
         {property.map((property) => (
           <PropertiesCard key={property.data} ppt={property ? property : []} />
         ))}
       </div>
+      <Link
+        to="/properties"
+        className="px-4 py-2 bg-pink-500 text-white w-36 mx-auto flex font-bold items-center my-2 lg:my-5 hover-letter-space"
+      >
+        See All <ArrowRightIcon className="mx-2 w-5 h-5" />
+      </Link>
     </div>
   );
 };

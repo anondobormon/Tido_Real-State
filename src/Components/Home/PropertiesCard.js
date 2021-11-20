@@ -1,5 +1,6 @@
 import { BadgeCheckIcon, NewspaperIcon } from "@heroicons/react/solid";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const PropertiesCard = ({ ppt }) => {
   return (
@@ -37,8 +38,13 @@ export const PropertiesCard = ({ ppt }) => {
         <hr />
         <div className="my-2 flex font-bold text-gray-400 justify-between py-2">
           <div className="w-22 flex">$ {ppt.price}</div>
-          <div className="w-22 text-pink-600 flex">Read More</div>
-          <div className="w-22 text-pink-600 flex">Buy Now</div>
+          <Link
+            to={`/property/${ppt._id}`}
+            className="w-22 cursor-pointer text-pink-600 flex"
+          >
+            Read More
+          </Link>
+          <div className="w-22 text-pink-600 cursor-pointer flex">Buy Now</div>
         </div>
       </div>
     </div>

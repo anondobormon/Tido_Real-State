@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const UpdateProperty = () => {
   const [properties, setProperties] = useState([]);
@@ -7,7 +8,7 @@ export const UpdateProperty = () => {
     fetch("http://localhost:5000/properties")
       .then((response) => response.json())
       .then((property) => {
-        setProperties(property);
+        setProperties(property.slice(1, 9));
         setLoading(false);
       });
   }, []);
@@ -24,11 +25,16 @@ export const UpdateProperty = () => {
             <div className="top-selling">
               <div className="absolute p-12 text-white text-left w-full h-full top-product-details">
                 <div className="h-3/6 ">
-                  <p className="text-sm font-bold">Property Name</p>
-                  <p className="text-sm font-bold">Property Category</p>
+                  <p className="text-sm font-bold">{property.title}</p>
+                  <p className="text-sm font-bold">{property.type}</p>
                 </div>
                 <div className="flex justify-center">
-                  <button className="w-30 bg-black px-4 py-1">See More</button>
+                  <Link
+                    to={`/property/${property._id}`}
+                    className="w-30 bg-black px-4 py-1"
+                  >
+                    See More
+                  </Link>
                 </div>
               </div>
               <img src={property.image} alt="" />

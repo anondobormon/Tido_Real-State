@@ -3,7 +3,7 @@ import { PropertyVideo } from "../SingleProperties/PropertyVideo";
 
 export const AboutDetails = () => {
   return (
-    <div className="max-w-screen-2xl m-auto p-4">
+    <div className="2xl:max-w-screen-2xl max-w-7xl m-auto p-4">
       <p className="text-3xl font-bold">Who We are?</p>
       <div className="w-24 h-1 my-2 bg-primary"></div>
 

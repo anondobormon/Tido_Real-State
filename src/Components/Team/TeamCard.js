@@ -8,7 +8,7 @@ import React from "react";
 
 export const TeamCard = () => {
   return (
-    <div className="border text-center px-4">
+    <div className="border text-center">
       <div className="w-36 h-36 my-4 rounded-full mx-auto border-4 border-white overflow-hidden">
         <img
           src="https://i.ibb.co/N9yHSyz/pexels-andrea-piacquadio-842567.jpg"

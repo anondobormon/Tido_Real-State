@@ -11,7 +11,7 @@ import React from "react";
 export const Footer = () => {
   return (
     <div className="text-white bg-black  md:pt-16">
-      <div className="max-w-screen-2xl py-8 m-auto">
+      <div className="2xl:max-w-screen-2xl max-w-7xl py-8 m-auto">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <HomeIcon className="w-20 h-20 " />
           {/* <App /> */}

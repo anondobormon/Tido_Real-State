@@ -12,8 +12,7 @@ export const Team = () => {
       <button className="px-4 py-2 bg-pink-500 text-white w-36 mx-auto flex font-bold items-center my-2 lg:my-5 hover-letter-space">
         See All <ArrowRightIcon className="mx-2 w-5 h-5" />
       </button>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-8 py-8 gap-4">
-        <TeamCard />
+      <div className="2xl:max-w-screen-2xl max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 py-8 gap-4">
         <TeamCard />
         <TeamCard />
         <TeamCard />

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { PropertiesCard } from "../Home/PropertiesCard";
+import { Loading } from "../Loading/Loading";
 
 export const Properties = () => {
   const [properties, setProperties] = useState([]);
@@ -12,12 +13,14 @@ export const Properties = () => {
       .then((response) => response.json())
       .then((property) => {
         setProperties(property);
+        console.log(property);
         setLoading(false);
       });
   }, []);
   return (
     <div className="bg-gray-100">
       <PropertyHeader content={"Properties"} />
+
       <div className="max-w-screen-2xl py-8 md:py-20 m-auto">
         <div className="flex justify-between items-center">
           <div>
@@ -33,14 +36,19 @@ export const Properties = () => {
             <ChevronDownIcon className="w-6" />
           </div>
         </div>
-        <div className="grid grid-cols-1 py-8 md:grid-cols-4 gap-2 my-2">
-          {properties.map((property) => (
-            <PropertiesCard ppt={property} />
-          ))}
-          {properties.map((property) => (
-            <PropertiesCard ppt={property} />
-          ))}
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="grid grid-cols-1 py-8 md:grid-cols-4 gap-2 my-2">
+            {properties.map((property) => (
+              <PropertiesCard ppt={property} />
+            ))}
+            {properties.map((property) => (
+              <PropertiesCard ppt={property} />
+            ))}
+          </div>
+        )}
+
         <button className="mx-auto px-4 py-2 rounded text-white bg-pink-600">
           Load More
         </button>

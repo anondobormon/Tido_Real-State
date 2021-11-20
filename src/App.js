@@ -18,12 +18,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<LoginResister />} />
-        <Route path="property" element={<SingleProperty />} />
+        <Route path="/property/:id" element={<SingleProperty />} />
         <Route path="properties" element={<Properties />} />
         <Route path="form" element={<PropertyForm />} />
         <Route path="user" element={<DashSection />} />
-        {/* <Route path="user/:path" element={<Dashboard />} /> */}
-        {/* <Route path="user/:path" element={<DashboardAddProperty />} /> */}
 
         <Route path="user/dashboard" element={<DashSection />} />
         <Route path="user/profile" element={<DashboardUserProfile />} />

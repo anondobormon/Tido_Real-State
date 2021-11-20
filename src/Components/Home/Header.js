@@ -3,7 +3,7 @@ import { HomeIcon } from "@heroicons/react/solid";
 export const Header = () => {
   return (
     <div className="custom-bg bg-header h-vh bg-indigo-200">
-      <div className="max-w-screen-2xl py-8 m-auto grid grid-cols-1 md:grid-cols-2 z-in">
+      <div className="2xl:max-w-screen-2xl max-w-7xl py-8 m-auto grid grid-cols-1 md:grid-cols-2 z-in">
         <div className="mx-2 md:m-0 py-20  py-12 md:py-52 md:text-left">
           <p className="text-base flex color-primary">
             <span className="mr-4">

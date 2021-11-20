@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "../Footer/Footer";
+import { BoxLoading } from "../Loading/BoxLoading";
 import { PopularPlace } from "../PopulerPlace/PopularPlace";
 import { Team } from "../Team/Team";
 import { Testimonial } from "../Testimonial/Testimonial";
@@ -12,37 +13,47 @@ import { UpdateProperty } from "./UpdateProperty";
 export const Home = () => {
   const [rentProperty, setRentProperty] = useState([]);
   const [saleProperty, setSaleProperty] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/properties")
       .then((res) => res.json())
       .then((data) => {
         let rent = data.filter((property) => property.status == "For Rent");
-        let sale = data.filter((property) => property.status == "For Sale");
+
+        let sale = data
+          .filter((property) => property.status == "For Sale")
+          .slice(0, 8);
         setRentProperty(rent);
         setSaleProperty(sale);
-        console.log(data);
+        setLoading(false);
       });
   }, []);
 
   return (
     <div>
-      <Header />
-      <Properties
-        category={"Sale"}
-        property={saleProperty ? saleProperty : []}
-      />
-      <UpdateProperty />
-      <ChoseUs />
-      <Properties
-        category={"Rent"}
-        property={rentProperty ? saleProperty : []}
-      />
-      <PopularPlace />
-      <Specials />
-      <Team />
-      <Testimonial />
-      <Footer />
+      {loading ? (
+        <BoxLoading />
+      ) : (
+        <div>
+          <Header />
+          <Properties
+            category={"Sale"}
+            property={saleProperty ? saleProperty : []}
+          />
+          <UpdateProperty />
+          <ChoseUs />
+          <Properties
+            category={"Rent"}
+            property={rentProperty ? rentProperty : []}
+          />
+          <PopularPlace />
+          <Specials />
+          <Team />
+          <Testimonial />
+          <Footer />
+        </div>
+      )}
     </div>
   );
 };
