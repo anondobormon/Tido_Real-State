@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { UpdateProperty } from "../Home/UpdateProperty";
+import { Loading } from "../Loading/Loading";
 import { Testimonial } from "../Testimonial/Testimonial";
 import { PropertyDetails } from "./PropertyDetails";
 import "./SingleProperty.css";
-import { useParams } from "react-router-dom";
-import { Loading } from "../Loading/Loading";
 
 export const SingleProperty = () => {
   const { id } = useParams();
@@ -21,7 +21,7 @@ export const SingleProperty = () => {
         setLoading(false);
         console.log(singleProperty);
       });
-  }, []);
+  }, [id]);
   console.log(id);
   return (
     <div className="">

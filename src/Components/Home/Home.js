@@ -19,10 +19,10 @@ export const Home = () => {
     fetch("http://localhost:5000/properties")
       .then((res) => res.json())
       .then((data) => {
-        let rent = data.filter((property) => property.status == "For Rent");
+        let rent = data.filter((property) => property.status === "For Rent");
 
         let sale = data
-          .filter((property) => property.status == "For Sale")
+          .filter((property) => property.status === "For Sale")
           .slice(0, 8);
         setRentProperty(rent);
         setSaleProperty(sale);

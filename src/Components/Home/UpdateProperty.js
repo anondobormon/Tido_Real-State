@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 
 export const UpdateProperty = () => {
   const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/properties")
       .then((response) => response.json())
       .then((property) => {
         setProperties(property.slice(1, 9));
-        setLoading(false);
       });
   }, []);
   return (
@@ -21,7 +19,7 @@ export const UpdateProperty = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border">
         {properties.map((property) => (
-          <div className="sell">
+          <div key={property._id} className="sell">
             <div className="top-selling">
               <div className="absolute p-12 text-white text-left w-full h-full top-product-details">
                 <div className="h-3/6 ">

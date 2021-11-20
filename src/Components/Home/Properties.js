@@ -1,11 +1,9 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { PropertiesCard } from "./PropertiesCard";
 
 export const Properties = ({ category, property }) => {
-  const [loading, setLoading] = useState(true);
-
   return (
     <div className="bg-gray-100 py-8">
       <h1 className="text-3xl text-center font-bold  py-1">
@@ -16,7 +14,7 @@ export const Properties = ({ category, property }) => {
       </p>
       <div className="2xl:max-w-screen-2xl max-w-7xl my-2 m-auto grid grid-cols-1 md:grid-cols-4 gap-2">
         {property.map((property) => (
-          <PropertiesCard key={property.data} ppt={property ? property : []} />
+          <PropertiesCard key={property._id} ppt={property ? property : []} />
         ))}
       </div>
       <Link

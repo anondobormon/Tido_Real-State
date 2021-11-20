@@ -13,15 +13,15 @@ import { Link, useLocation } from "react-router-dom";
 export const DashboardSidebar = () => {
   const { pathname } = useLocation();
   const [background, setBackground] = useState(
-    pathname == "/user/dashboard"
+    pathname === "/user/dashboard"
       ? "dashboard"
-      : "" || pathname == "/user/profile"
+      : "" || pathname === "/user/profile"
       ? "profile"
-      : "" || pathname == "/user/properties"
+      : "" || pathname === "/user/properties"
       ? "properties"
-      : "" || pathname == "/user/add-property"
+      : "" || pathname === "/user/add-property"
       ? "add-property"
-      : "" || pathname == "/user"
+      : "" || pathname === "/user"
       ? "dashboard"
       : ""
   );
@@ -77,7 +77,7 @@ export const DashboardSidebar = () => {
           to="/user/dashboard"
           onClick={() => handleBackground(setBackground("dashboard"))}
           className={`w-full ${
-            background == "dashboard" ? bgAndText : ""
+            background === "dashboard" ? bgAndText : ""
           } p-4 font-bold border-t cursor-pointer flex items-center`}
         >
           <HomeIcon className="w-5 mr-2" />
@@ -88,7 +88,7 @@ export const DashboardSidebar = () => {
           to="/user/profile"
           onClick={() => handleBackground(setBackground("profile"))}
           className={`w-full ${
-            background == "profile" ? bgAndText : ""
+            background === "profile" ? bgAndText : ""
           } p-4 font-bold border-t cursor-pointer flex items-center`}
         >
           <UserCircleIcon className="w-5 mr-2" />
@@ -99,7 +99,7 @@ export const DashboardSidebar = () => {
           to="/user/properties"
           onClick={() => handleBackground(setBackground("properties"))}
           className={`w-full ${
-            background == "properties" ? bgAndText : ""
+            background === "properties" ? bgAndText : ""
           } p-4 font-bold border-t cursor-pointer flex items-center`}
         >
           <TemplateIcon className="w-5 mr-2" />
@@ -110,7 +110,7 @@ export const DashboardSidebar = () => {
           to="/user/add-property"
           onClick={() => handleBackground(setBackground("add-property"))}
           className={`w-full ${
-            background == "add-property" ? bgAndText : ""
+            background === "add-property" ? bgAndText : ""
           } p-4 font-bold border-t cursor-pointer flex items-center`}
         >
           <PencilAltIcon className="w-5 mr-2" />
@@ -120,7 +120,7 @@ export const DashboardSidebar = () => {
         <div
           onClick={() => handleBackground(setBackground("Logout"))}
           className={`w-full ${
-            background == "Logout" ? bgAndText : ""
+            background === "Logout" ? bgAndText : ""
           } p-4 font-bold border-t cursor-pointer flex items-center`}
         >
           <LogoutIcon className="w-5 mr-2" />
