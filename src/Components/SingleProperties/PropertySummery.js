@@ -2,6 +2,9 @@ import React from "react";
 import { Features } from "./Features";
 
 export const PropertySummery = ({ property }) => {
+  const handleBuy = (e) => {
+    console.log(e);
+  };
   return (
     <div className="my-4 mb-6">
       <div className="text-3xl font-bold">
@@ -80,6 +83,12 @@ export const PropertySummery = ({ property }) => {
           )}
           {property?.otherFeatures.wifi ? <Features title={"Wi-Fi"} /> : ""}
         </div>
+        <button
+          onClick={() => handleBuy(property._id)}
+          className="px-4 py-2 text-center bg-primary w-36 text-lg text-white mx-auto flex font-bold items-center my-2 lg:my-5 hover-letter-space"
+        >
+          Buy Now
+        </button>
       </div>
     </div>
   );
