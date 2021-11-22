@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const people = [
   {
@@ -14,6 +14,31 @@ const people = [
 ];
 
 export const MyProperties = () => {
+  const [infoData, setInfoData] = useState([]);
+  const userId = localStorage.getItem("uid");
+
+  useEffect(() => {
+    fetch("https://calm-garden-61691.herokuapp.com/userinfo")
+      .then((res) => res.json())
+      .then((data) => {
+        let userData = data.find((user) => user.uid === userId);
+        setInfoData(userData);
+        console.log(userData);
+      });
+  }, []);
+  const { buyProperty, username, _id } = infoData ? infoData : {};
+
+  const handleDelete = (id) => {
+    let data = {
+      id: id,
+    };
+    fetch("https://calm-garden-61691.herokuapp.com/delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+  };
+
   return (
     <div className="border p-4 mx-auto w-full md:w-9/12 bg-white">
       <h1 className="font-bold mb-8 text-2xl "> My Properties</h1>
@@ -46,7 +71,7 @@ export const MyProperties = () => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Role
+                      Price
                     </th>
                     <th scope="col" className="relative py-3">
                       <span className="">Edit</span>
@@ -54,33 +79,33 @@ export const MyProperties = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {people.map((person) => (
-                    <tr key={person.email}>
+                  {buyProperty?.map((property) => (
+                    <tr key={property ? property.email : ""}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
                             <img
                               className="h-10 w-10 rounded-full"
-                              src={person.image}
+                              src={people[0].image}
                               alt=""
                             />
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
-                              {person.name}
+                              {username ? username : ""}
                             </div>
                             <div className="text-sm text-gray-500">
-                              {person.email}
+                              {property.email}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">
-                          {person.title}
+                          {property ? property.title : ""}
                         </div>
                         <div className="text-sm text-gray-500">
-                          {person.department}
+                          {property ? property.status : ""}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -89,10 +114,13 @@ export const MyProperties = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {person.role}
+                        $ {property ? property.price : ""}
                       </td>
                       <td className="px-6 py-4 relative whitespace-nowrap text-right text-sm font-medium">
-                        <button className="cursor-pointer p-1 px-2 rounded bg-red-500 text-white">
+                        <button
+                          onClick={() => handleDelete(_id)}
+                          className="cursor-pointer p-1 px-2 rounded bg-red-500 text-white"
+                        >
                           Delete
                         </button>
                         {/* <select className="px-2 ml-2 border rounded py-1">

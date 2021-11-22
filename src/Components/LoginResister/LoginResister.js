@@ -31,16 +31,13 @@ export const LoginResister = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
         setNewUser(user);
 
         // Send user data to data database
         let userData = { ...formData };
         userData["uid"] = user.uid;
-        // userData["reloadUserInfo"] = user.reloadUserInfo;
-        console.log(userData);
 
-        fetch("http://localhost:5000/add-user", {
+        fetch("https://calm-garden-61691.herokuapp.com/add-user", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userData),
@@ -51,6 +48,9 @@ export const LoginResister = () => {
           .catch((error) => {
             console.log(error);
           });
+        // Sava data in LocalStorage
+        localStorage.setItem("uid", user.uid);
+
         // show toast
         toast.success("Resister Successful !", {
           position: toast.POSITION.TOP_RIGHT,
@@ -60,6 +60,7 @@ export const LoginResister = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setEmailError(errorMessage);
+
         // show toast
         toast.error("Authentication Failed !", {
           position: toast.POSITION.TOP_RIGHT,
@@ -78,10 +79,8 @@ export const LoginResister = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
 
         // Sava data in LocalStorage
-        localStorage.setItem("userEmail", user.email);
         localStorage.setItem("uid", user.uid);
 
         // show toast
@@ -93,6 +92,7 @@ export const LoginResister = () => {
       .catch((error) => {
         const errorMessage = error.message;
         setPasswordError(errorMessage);
+
         // show toast
         toast.error("Authentication Failed !", {
           position: toast.POSITION.TOP_RIGHT,

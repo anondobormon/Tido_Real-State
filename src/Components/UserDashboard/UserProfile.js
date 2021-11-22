@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const UserProfile = () => {
+  const [infoData, setInfoData] = useState([]);
+  const userId = localStorage.getItem("uid");
+  console.log(userId);
+
+  useEffect(() => {
+    fetch("https://calm-garden-61691.herokuapp.com/userinfo")
+      .then((res) => res.json())
+      .then((data) => {
+        let userData = data.find((user) => user.uid === userId);
+        setInfoData(userData);
+      });
+  }, []);
+  const { buyProperty, username } = infoData ? infoData : {};
+
   return (
     <div className="p-4 rounded">
       <h1 className="text-3xl font-bold">My Account</h1>
@@ -11,7 +25,7 @@ export const UserProfile = () => {
             type="text"
             className="py-3 px-4 w-full rounded border text-lg focus:outline-none"
             placeholder="Enter Your Name "
-            value="Jason Thompson"
+            value={infoData ? infoData.username : ""}
             name="name"
           />
         </div>
@@ -21,7 +35,7 @@ export const UserProfile = () => {
             type="email"
             className="py-3 px-4 w-full rounded border text-lg focus:outline-none"
             placeholder="Enter Your Email "
-            value="abcdefgj@mail.com"
+            value={infoData ? infoData.email : ""}
             name="email"
           />
         </div>

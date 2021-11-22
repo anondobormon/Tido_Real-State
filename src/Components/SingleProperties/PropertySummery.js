@@ -1,14 +1,39 @@
 import React from "react";
+import { toast, ToastContainer } from "react-toastify";
 import { Features } from "./Features";
 
 export const PropertySummery = ({ property }) => {
-  const handleBuy = (e) => {
-    console.log(e);
+  const handleBuy = async (id) => {
+    try {
+      const userId = localStorage.getItem("uid");
+      const userData = {
+        uid: userId,
+        propertyId: id,
+      };
+
+      // show toast
+      await toast.success("Buy Successful !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+
+      // Send data to database
+      await fetch("https://calm-garden-61691.herokuapp.com/addbuy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+    } catch (error) {
+      // show toast
+      await toast.error("Buy Failed !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
   return (
     <div className="my-4 mb-6">
       <div className="text-3xl font-bold">
         <p>Property Summery</p>
+
         <div className="w-24 h-1 my-2 bg-primary"></div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <p className="text-xl font-bold text-black">
@@ -90,6 +115,7 @@ export const PropertySummery = ({ property }) => {
           Buy Now
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 };

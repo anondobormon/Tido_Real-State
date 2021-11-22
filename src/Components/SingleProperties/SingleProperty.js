@@ -13,16 +13,15 @@ export const SingleProperty = () => {
   const [property, setProperty] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/properties")
+    fetch("https://calm-garden-61691.herokuapp.com/properties")
       .then((response) => response.json())
       .then((property) => {
         let singleProperty = property.find((ppt) => ppt._id === id);
         setProperty(singleProperty);
         setLoading(false);
-        console.log(singleProperty);
+        // console.log(singleProperty);
       });
   }, [id]);
-  console.log(id);
   return (
     <div className="">
       {loading ? (

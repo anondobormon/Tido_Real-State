@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Footer } from "../Footer/Footer";
 import { BoxLoading } from "../Loading/BoxLoading";
+import { Navbar } from "../Navbar/Navbar";
 import { PopularPlace } from "../PopulerPlace/PopularPlace";
 import { Team } from "../Team/Team";
 import { Testimonial } from "../Testimonial/Testimonial";
@@ -16,7 +17,7 @@ export const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/properties")
+    fetch("https://calm-garden-61691.herokuapp.com/properties")
       .then((res) => res.json())
       .then((data) => {
         let rent = data.filter((property) => property.status === "For Rent");
@@ -31,11 +32,12 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       {loading ? (
         <BoxLoading />
       ) : (
         <div>
+          <Navbar />
           <Header />
           <Properties
             category={"Sale"}
