@@ -49,7 +49,7 @@ export function Navbar() {
   });
 
   return (
-    <div className="bg-black border">
+    <div className="bg-black ">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog
@@ -165,7 +165,7 @@ export function Navbar() {
         </Dialog>
       </Transition.Root>
 
-      <header className={height > 10 ? "sticky-nav bg-pink-600" : "top-navbar"}>
+      <header className={height > 1 ? "sticky-nav bg-pink-600" : "top-navbar"}>
         <p className="bg-pink-600 h-12 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
           Get 50% OFF
         </p>

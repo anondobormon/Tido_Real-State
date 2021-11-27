@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       l
-      <LevelContext.Provider value={prop}>
+      <LevelContext.Provider value={level}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
