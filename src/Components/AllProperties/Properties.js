@@ -10,7 +10,7 @@ export const Properties = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://calm-garden-61691.herokuapp.com/properties")
+    fetch("http://localhost:5000/properties")
       .then((response) => response.json())
       .then((property) => {
         setProperties(property);

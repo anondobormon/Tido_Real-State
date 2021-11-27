@@ -14,7 +14,7 @@ export const SingleProperty = () => {
   const [property, setProperty] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://calm-garden-61691.herokuapp.com/properties")
+    fetch("http://localhost:5000/properties")
       .then((response) => response.json())
       .then((property) => {
         let singleProperty = property.find((ppt) => ppt._id === id);

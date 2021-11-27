@@ -4,6 +4,7 @@ import { Features } from "./Features";
 
 export const PropertySummery = ({ property }) => {
   const handleBuy = async (id) => {
+    console.log(id);
     try {
       const userId = localStorage.getItem("uid");
       const userData = {
@@ -16,8 +17,10 @@ export const PropertySummery = ({ property }) => {
         position: toast.POSITION.TOP_RIGHT,
       });
 
+      // https://calm-garden-61691.herokuapp.com
+
       // Send data to database
-      await fetch("https://calm-garden-61691.herokuapp.com/addbuy", {
+      await fetch("http://localhost:5000/addbuy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),

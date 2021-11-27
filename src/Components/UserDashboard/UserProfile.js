@@ -6,7 +6,7 @@ export const UserProfile = () => {
   console.log(userId);
 
   useEffect(() => {
-    fetch("https://calm-garden-61691.herokuapp.com/userinfo")
+    fetch("http://localhost:5000/userinfo")
       .then((res) => res.json())
       .then((data) => {
         let userData = data.find((user) => user.uid === userId);

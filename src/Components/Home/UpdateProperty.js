@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const UpdateProperty = () => {
   const [properties, setProperties] = useState([]);
   useEffect(() => {
-    fetch("https://calm-garden-61691.herokuapp.com/properties")
+    fetch("http://localhost:5000/properties")
       .then((response) => response.json())
       .then((property) => {
         setProperties(property.slice(1, 9));

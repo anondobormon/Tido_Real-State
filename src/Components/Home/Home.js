@@ -17,7 +17,7 @@ export const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://calm-garden-61691.herokuapp.com/properties")
+    fetch("http://localhost:5000/properties")
       .then((res) => res.json())
       .then((data) => {
         let rent = data.filter((property) => property.status === "For Rent");

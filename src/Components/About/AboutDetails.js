@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LevelContext } from "../Context";
 import { PropertyVideo } from "../SingleProperties/PropertyVideo";
 
 export const AboutDetails = () => {
+  const level = useContext(LevelContext);
+  console.log(level);
+
   return (
     <div className="2xl:max-w-screen-2xl max-w-7xl m-auto p-4">
       <p className="text-3xl font-bold">Who We are?</p>

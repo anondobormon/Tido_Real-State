@@ -29,7 +29,7 @@ export const PropertyForm = () => {
     let newData = { ...formData };
     newData["image"] = imageURL;
 
-    fetch("https://calm-garden-61691.herokuapp.com/upload", {
+    fetch("http://localhost:5000/upload", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newData),
