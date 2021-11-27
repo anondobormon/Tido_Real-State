@@ -4,6 +4,7 @@ import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { PropertiesCard } from "../Home/PropertiesCard";
 import { Loading } from "../Loading/Loading";
+import { Navbar } from "../Navbar/Navbar";
 
 export const Properties = () => {
   const [properties, setProperties] = useState([]);
@@ -19,6 +20,7 @@ export const Properties = () => {
   }, []);
   return (
     <div className="bg-gray-100">
+      <Navbar />
       <PropertyHeader content={"Properties"} />
 
       <div className="max-w-screen-2xl py-8 md:py-20 m-auto">

@@ -11,6 +11,7 @@ import GoogleIcon from "../../Img/google.png";
 import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { Specials } from "../Home/Specials";
+import { Navbar } from "../Navbar/Navbar";
 import firebaseConfig from "./firebase.config";
 const app = initializeApp(firebaseConfig);
 
@@ -112,6 +113,7 @@ export const LoginResister = () => {
   const toggleLogin = () => {};
   return (
     <div>
+      <Navbar />
       <PropertyHeader content={"Login/Resister"} />
       <div className="2xl:max-w-screen-2xl max-w-7xl m-auto py-8">
         <p className="text-3xl font-bold p-2 md:p-0">Login Here</p>

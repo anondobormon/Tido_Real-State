@@ -319,3 +319,12 @@
   z-index: 1111111;
   width: 100%;
 }
+
+.sticky-nav {
+  width: 100%;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: 0.5s linear;
+  z-index: 11111111;
+}

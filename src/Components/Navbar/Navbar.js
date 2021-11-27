@@ -5,7 +5,7 @@ import {
   ShoppingBagIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const navigation = {
@@ -38,6 +38,15 @@ function classNames(...classes) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [height, setHeight] = useState(1);
+
+  const updateScroll = () => {
+    setHeight(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  });
 
   return (
     <div className="bg-black border">
@@ -156,7 +165,7 @@ export function Navbar() {
         </Dialog>
       </Transition.Root>
 
-      <header className=" top-navbar ">
+      <header className={height > 10 ? "sticky-nav bg-pink-600" : "top-navbar"}>
         <p className="bg-pink-600 h-12 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
           Get 50% OFF
         </p>

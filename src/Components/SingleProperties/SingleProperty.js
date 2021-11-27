@@ -4,6 +4,7 @@ import { Footer } from "../Footer/Footer";
 import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { UpdateProperty } from "../Home/UpdateProperty";
 import { Loading } from "../Loading/Loading";
+import { Navbar } from "../Navbar/Navbar";
 import { Testimonial } from "../Testimonial/Testimonial";
 import { PropertyDetails } from "./PropertyDetails";
 import "./SingleProperty.css";
@@ -28,6 +29,7 @@ export const SingleProperty = () => {
         <Loading />
       ) : (
         <div>
+          <Navbar />
           <PropertyHeader content={"Single Property Header"} />
           <PropertyDetails property={property} />
           <UpdateProperty />
