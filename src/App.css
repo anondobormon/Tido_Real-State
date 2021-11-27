@@ -311,3 +311,11 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.top-navbar {
+  top: 0;
+  position: absolute;
+  background: transparent;
+  z-index: 1111111;
+  width: 100%;
+}

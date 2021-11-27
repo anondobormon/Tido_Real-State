@@ -4,6 +4,7 @@ import { About } from "./Components/About/About";
 import { Properties } from "./Components/AllProperties/Properties";
 import { Home } from "./Components/Home/Home";
 import { LoginResister } from "./Components/LoginResister/LoginResister";
+import { NotFound } from "./Components/NotFound/NotFound";
 import { PropertyForm } from "./Components/PropertyForm/PropertyForm";
 import { SingleProperty } from "./Components/SingleProperties/SingleProperty";
 import { DashboardAddProperty } from "./Components/UserDashboard/DashboradPages/DashboardAddProperty";
@@ -27,6 +28,7 @@ function App() {
         <Route path="user/profile" element={<DashboardUserProfile />} />
         <Route path="user/add-property" element={<DashboardAddProperty />} />
         <Route path="user/properties" element={<DashboardAllProperty />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
