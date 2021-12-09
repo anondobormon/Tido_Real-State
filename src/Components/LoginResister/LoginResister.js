@@ -54,7 +54,7 @@ export const LoginResister = () => {
 
         // show toast
         toast.success("Resister Successful !", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
         window.location.reload(true);
       })
@@ -64,7 +64,7 @@ export const LoginResister = () => {
 
         // show toast
         toast.error("Authentication Failed !", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
       });
   };
@@ -86,7 +86,7 @@ export const LoginResister = () => {
 
         // show toast
         toast.success("Login Success !", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
         window.location.reload(true);
       })
@@ -96,7 +96,7 @@ export const LoginResister = () => {
 
         // show toast
         toast.error("Authentication Failed !", {
-          position: toast.POSITION.TOP_RIGHT,
+          position: toast.POSITION.BOTTOM_RIGHT,
         });
       });
   };

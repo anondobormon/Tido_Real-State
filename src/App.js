@@ -7,6 +7,7 @@ import { LevelContext } from "./Components/Context";
 import { Home } from "./Components/Home/Home";
 import { LoginResister } from "./Components/LoginResister/LoginResister";
 import { NotFound } from "./Components/NotFound/NotFound";
+import { PlaceProperty } from "./Components/PopulerPlace/PlaceProperty";
 import { PropertyForm } from "./Components/PropertyForm/PropertyForm";
 import { SingleProperty } from "./Components/SingleProperties/SingleProperty";
 import { DashboardAddProperty } from "./Components/UserDashboard/DashboradPages/DashboardAddProperty";
@@ -17,19 +18,8 @@ import { DashSection } from "./Components/UserDashboard/DashboradPages/DashSecti
 function App() {
   let level = useContext(LevelContext);
 
-  // const [prop, setProp] = useState();
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/properties")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setProp(data);
-  //     });
-  // }, []);
-
   return (
     <div className="App">
-      l
       <LevelContext.Provider value={level}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,6 +29,7 @@ function App() {
           <Route path="properties" element={<Properties />} />
           <Route path="form" element={<PropertyForm />} />
           <Route path="user" element={<DashSection />} />
+          <Route path="city/:city" element={<PlaceProperty />} />
 
           <Route path="user/dashboard" element={<DashSection />} />
           <Route path="user/profile" element={<DashboardUserProfile />} />

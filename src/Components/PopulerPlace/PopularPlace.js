@@ -1,23 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const PopularPlace = () => {
   const Cities = [
     {
-      city: "New York",
+      city: "Dhaka",
       id: "1",
       url: "https://i.ibb.co/xC4xxXr/pexels-craig-adderley-1525612.jpg",
       details:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquid vel maxime fugiat debitis mollitia, nulla nemo dolore perferendis dolorum provident voluptas, quis facilis cupiditate asperiores! Fugit odio rem sit nam! Aliquid culpa error enim incidunt blanditiis necessitatibus vel nemo recusandae? Temporibus eaque aliquam aspernatur perferendis exercitationem, veritatis neque dolores!",
     },
     {
-      city: "California",
+      city: "Chittagong",
       id: "2",
       url: "https://i.ibb.co/0GZ2dXm/pexels-pixabay-258447.jpg",
       details:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquid vel maxime fugiat debitis mollitia, nulla nemo dolore perferendis dolorum provident voluptas, quis facilis cupiditate asperiores! Fugit odio rem sit nam! Aliquid culpa error enim incidunt blanditiis necessitatibus vel nemo recusandae? Temporibus eaque aliquam aspernatur perferendis exercitationem, veritatis neque dolores!",
     },
     {
-      city: "Texas",
+      city: "NewYork",
       id: "3",
       url: "https://i.ibb.co/MkhwpF5/pexels-olga-lioncat-7244362.jpg",
       details:
@@ -51,7 +52,10 @@ export const PopularPlace = () => {
           <div className="country text-center text-white w-full h-full absolute flex items-center justify-center">
             <div>
               <p className="text-3xl font-bold">{Cities[0].city}</p>
-              <p className="text-base">145 Properties</p>
+              <Link to={`/city/${Cities[0].city}`}>
+                {" "}
+                <p className="text-base">110 Properties</p>
+              </Link>
             </div>
           </div>
           <div className="rounded relative populer-place-overly overflow-hidden h-full">
@@ -64,7 +68,10 @@ export const PopularPlace = () => {
               <div className="country text-center text-white w-full h-full absolute flex items-center justify-center">
                 <div>
                   <p className="text-3xl font-bold">{Cities[1].city}</p>
-                  <p className="text-base">100 Properties</p>
+                  <Link to={`/city/${Cities[1].city}`}>
+                    {" "}
+                    <p className="text-base">104 Properties</p>
+                  </Link>
                 </div>
               </div>
               <div className="rounded relative populer-place-overly overflow-hidden h-345">
@@ -77,7 +84,10 @@ export const PopularPlace = () => {
               <div className="country text-center text-white w-full h-full absolute flex items-center justify-center">
                 <div>
                   <p className="text-3xl font-bold">{Cities[2].city}</p>
-                  <p className="text-base">100 Properties</p>
+                  <Link to={`/city/${Cities[2].city}`}>
+                    {" "}
+                    <p className="text-base">120 Properties</p>
+                  </Link>
                 </div>
               </div>
               <div className="rounded relative populer-place-overly overflow-hidden h-345">
@@ -90,7 +100,10 @@ export const PopularPlace = () => {
               <div className="country text-center text-white w-full h-full absolute flex items-center justify-center">
                 <div>
                   <p className="text-3xl font-bold">{Cities[3].city}</p>
-                  <p className="text-base">100 Properties</p>
+                  <Link to={`/city/${Cities[3].city}`}>
+                    {" "}
+                    <p className="text-base">15 Properties</p>
+                  </Link>
                 </div>
               </div>
               <div className="rounded relative populer-place-overly overflow-hidden h-345">
