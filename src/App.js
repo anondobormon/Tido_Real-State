@@ -8,6 +8,7 @@ import { Home } from "./Components/Home/Home";
 import { LoginResister } from "./Components/LoginResister/LoginResister";
 import { NotFound } from "./Components/NotFound/NotFound";
 import { PlaceProperty } from "./Components/PopulerPlace/PlaceProperty";
+import ProtectedRoute from "./Components/PortectedRoute/ProtectedRoute";
 import { PropertyForm } from "./Components/PropertyForm/PropertyForm";
 import { SingleProperty } from "./Components/SingleProperties/SingleProperty";
 import { DashboardAddProperty } from "./Components/UserDashboard/DashboradPages/DashboardAddProperty";
@@ -28,13 +29,49 @@ function App() {
           <Route path="/property/:id" element={<SingleProperty />} />
           <Route path="properties" element={<Properties />} />
           <Route path="form" element={<PropertyForm />} />
-          <Route path="user" element={<DashSection />} />
-          <Route path="city/:city" element={<PlaceProperty />} />
 
-          <Route path="user/dashboard" element={<DashSection />} />
-          <Route path="user/profile" element={<DashboardUserProfile />} />
-          <Route path="user/add-property" element={<DashboardAddProperty />} />
-          <Route path="user/properties" element={<DashboardAllProperty />} />
+          <Route
+            path="city/:city"
+            element={
+              <ProtectedRoute>
+                <PlaceProperty />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="user/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashSection />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="user/profile"
+            element={
+              <ProtectedRoute>
+                <DashboardUserProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="user/add-property"
+            element={
+              <ProtectedRoute>
+                <DashboardAddProperty />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="user/properties"
+            element={
+              <ProtectedRoute>
+                <DashboardAllProperty />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </LevelContext.Provider>

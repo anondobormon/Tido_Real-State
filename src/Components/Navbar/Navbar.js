@@ -18,7 +18,7 @@ const navigation = {
     {
       id: "dashboard",
       name: "Dashboard",
-      href: "user",
+      href: "user/dashboard",
     },
     {
       id: "property",

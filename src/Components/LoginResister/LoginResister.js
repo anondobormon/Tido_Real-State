@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GoogleIcon from "../../Img/google.png";
@@ -13,6 +14,7 @@ import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { Specials } from "../Home/Specials";
 import { Navbar } from "../Navbar/Navbar";
 import firebaseConfig from "./firebase.config";
+
 const app = initializeApp(firebaseConfig);
 
 export const LoginResister = () => {
@@ -21,6 +23,8 @@ export const LoginResister = () => {
   const [newUser, setNewUser] = useState({});
   const [emailError, setEmailError] = useState();
   const [passwordError, setPasswordError] = useState();
+  let location = useLocation();
+  let navigate = useNavigate();
 
   const auth = getAuth();
 
@@ -70,11 +74,14 @@ export const LoginResister = () => {
   };
 
   // Login with email Password
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     // Login in firebase with email password
     let email = formData.email;
     let password = formData.password;
     const auth = getAuth();
+
+    let from = location.state?.from?.pathname || "/";
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -88,7 +95,7 @@ export const LoginResister = () => {
         toast.success("Login Success !", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
-        window.location.reload(true);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
