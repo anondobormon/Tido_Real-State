@@ -1,17 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-const people = [
-  {
-    name: "Jane Cooper",
-    title: "Regional Paradigm Technician",
-    department: "Optimization",
-    role: "Admin",
-    email: "jane.cooper@example.com",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  // More people...
-];
+import { Link } from "react-router-dom";
 
 export const MyProperties = () => {
   const [infoData, setInfoData] = useState([]);
@@ -23,21 +11,10 @@ export const MyProperties = () => {
       .then((data) => {
         let userData = data.find((user) => user.uid === userId);
         setInfoData(userData);
-        console.log(userData);
       });
   }, []);
-  const { buyProperty, username, _id } = infoData ? infoData : {};
 
-  const handleDelete = (id) => {
-    let data = {
-      id: id,
-    };
-    fetch("http://localhost:5000/delete", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-  };
+  const { buyProperty, username, _id } = infoData ? infoData : {};
 
   return (
     <div className="border p-4 mx-auto w-full md:w-9/12 bg-white">
@@ -73,8 +50,11 @@ export const MyProperties = () => {
                     >
                       Price
                     </th>
-                    <th scope="col" className="relative py-3">
-                      <span className="">Edit</span>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Edit
                     </th>
                   </tr>
                 </thead>
@@ -86,7 +66,7 @@ export const MyProperties = () => {
                           <div className="flex-shrink-0 h-10 w-10">
                             <img
                               className="h-10 w-10 rounded-full"
-                              src={people[0].image}
+                              src="https://i.ibb.co/BfLNrxt/undraw-profile-pic-ic5t.png"
                               alt=""
                             />
                           </div>
@@ -117,12 +97,12 @@ export const MyProperties = () => {
                         $ {property ? property.price : ""}
                       </td>
                       <td className="px-6 py-4 relative whitespace-nowrap text-right text-sm font-medium">
-                        <button
-                          onClick={() => handleDelete(_id)}
+                        <Link
+                          to={`/property/${property._id}`}
                           className="cursor-pointer p-1 px-2 rounded bg-red-500 text-white"
                         >
-                          Delete
-                        </button>
+                          View
+                        </Link>
                         {/* <select className="px-2 ml-2 border rounded py-1">
                           <option value="Active">Active</option>
                           <option value="Done">Done</option>

@@ -4,7 +4,7 @@ import { BoxLoading } from "../Loading/BoxLoading";
 import { Navbar } from "../Navbar/Navbar";
 import { PopularPlace } from "../PopulerPlace/PopularPlace";
 import { Team } from "../Team/Team";
-import { Testimonial } from "../Testimonial/Testimonial";
+import TestimonialSlider from "../TestimonialSlider/TestimonialSlider";
 import { ChoseUs } from "../WhyChose/ChoseUs";
 import { Header } from "./Header";
 import { Properties } from "./Properties";
@@ -15,7 +15,7 @@ export const Home = () => {
   const [rentProperty, setRentProperty] = useState([]);
   const [saleProperty, setSaleProperty] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  // http://localhost:5000
   useEffect(() => {
     fetch("http://localhost:5000/properties")
       .then((res) => res.json())
@@ -52,7 +52,7 @@ export const Home = () => {
           <PopularPlace />
           <Specials />
           <Team />
-          <Testimonial />
+          <TestimonialSlider />
           <Footer />
         </div>
       )}

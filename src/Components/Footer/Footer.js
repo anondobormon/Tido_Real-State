@@ -6,9 +6,16 @@ import {
   MailIcon,
   PhoneIcon,
 } from "@heroicons/react/solid";
-import React from "react";
+import React, { useState } from "react";
+import TestimonialModal from "../Modals/TestimonialModal";
 
 export const Footer = () => {
+  const [reviewPopup, setReviewPopup] = useState(true);
+
+  const handleReview = () => {
+    setReviewPopup(!reviewPopup);
+  };
+
   return (
     <div className="text-white bg-black  md:pt-16">
       <div className="2xl:max-w-screen-2xl max-w-7xl py-8 m-auto">
@@ -48,6 +55,12 @@ export const Footer = () => {
               electronic typesetting, remaining essentially unchanged. It was
               popularised
             </p>
+            <button
+              onClick={handleReview}
+              className="bg-pink-500 font-bold text-white rounded-tr-md rounded-br-md py-2 px-4"
+            >
+              Review
+            </button>
           </div>
           <div className="">
             <p className="text-white font-bold pb-1 mb-4 text-2xl w-44 underline-button">
@@ -121,6 +134,9 @@ export const Footer = () => {
           />
           DecodeSoft 2022 . All rights reserved.
         </p>
+      </div>
+      <div>
+        <TestimonialModal popups={reviewPopup} />
       </div>
     </div>
   );

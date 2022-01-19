@@ -17,7 +17,7 @@ export const PropertySummery = ({ property }) => {
         position: toast.POSITION.TOP_RIGHT,
       });
 
-      // https://calm-garden-61691.herokuapp.com
+      // http://localhost:5000
 
       // Send data to database
       await fetch("http://localhost:5000/addbuy", {

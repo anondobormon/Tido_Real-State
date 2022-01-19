@@ -123,7 +123,7 @@ export const LoginResister = () => {
       <Navbar />
       <PropertyHeader content={"Login/Resister"} />
       <div className="2xl:max-w-screen-2xl max-w-7xl m-auto py-8">
-        <p className="text-3xl font-bold p-2 md:p-0">Login Here</p>
+        <p className="text-3xl font-bold p-2 md:p-0 md:pb-2">Login/Register</p>
         <div className="w-24 ml-2 md:m-0 h-1 my-2 bg-primary"></div>
         <div className="md:w-2/4 w-full p-2 md:px-20 m-auto ">
           <div className="w-full border p-3 font-semibold bg-gray-100 my-4 rounded flex items-center justify-center flex items-center justify-center">
@@ -194,7 +194,7 @@ export const LoginResister = () => {
                 onClick={() => toggleLogin(setToggle(true))}
                 className="font-bold hover:text-blue-600 cursor-pointer"
               >
-                Sign Up Here!
+                Register Here!
               </span>
             </p>
           ) : (
@@ -204,7 +204,7 @@ export const LoginResister = () => {
                 onClick={() => toggleLogin(setToggle(false))}
                 className="font-bold hover:text-blue-600 cursor-pointer"
               >
-                Sign In Here!
+                Login Here!
               </span>
             </p>
           )}
