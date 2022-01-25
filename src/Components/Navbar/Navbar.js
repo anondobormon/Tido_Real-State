@@ -28,7 +28,7 @@ const navigation = {
   ],
   pages: [
     { name: "About Us", href: "about" },
-    { name: "Contact Us", href: "user" },
+    { name: "Contact Us", href: "contact" },
   ],
 };
 
@@ -123,7 +123,7 @@ export function Navbar() {
                     to="/contact"
                     className="-m-2 p-2 block font-medium text-gray-900"
                   >
-                    contact Us
+                    Contact Us
                   </NavLink>
                 </div>
                 <div className="flow-root">
@@ -224,13 +224,15 @@ export function Navbar() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.href}
+                    <NavLink
+                      className={({ isActive }) => {
+                        return "bg-red-600";
+                      }}
+                      to={"/" + page.href}
                       className="flex items-center text-sm font-medium text-white "
                     >
                       {page.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </Popover.Group>

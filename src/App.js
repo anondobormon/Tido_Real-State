@@ -25,12 +25,12 @@ function App() {
       <LevelContext.Provider value={level}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="login" element={<LoginResister />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/login" element={<LoginResister />} />
           <Route path="/property/:id" element={<SingleProperty />} />
-          <Route path="properties" element={<Properties />} />
-          <Route path="form" element={<PropertyForm />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/form" element={<PropertyForm />} />
 
           <Route
             path="city/:city"
@@ -42,7 +42,7 @@ function App() {
           />
 
           <Route
-            path="user/dashboard"
+            path="/user/dashboard"
             element={
               <ProtectedRoute>
                 <DashSection />
@@ -50,7 +50,7 @@ function App() {
             }
           />
           <Route
-            path="user/profile"
+            path="/user/profile"
             element={
               <ProtectedRoute>
                 <DashboardUserProfile />
@@ -58,7 +58,7 @@ function App() {
             }
           />
           <Route
-            path="user/add-property"
+            path="/user/add-property"
             element={
               <ProtectedRoute>
                 <DashboardAddProperty />
@@ -66,7 +66,7 @@ function App() {
             }
           />
           <Route
-            path="user/properties"
+            path="/user/properties"
             element={
               <ProtectedRoute>
                 <DashboardAllProperty />
