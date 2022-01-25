@@ -42,7 +42,7 @@ export const LoginResister = () => {
         let userData = { ...formData };
         userData["uid"] = user.uid;
 
-        fetch("http://localhost:5000/add-user", {
+        fetch("https://calm-garden-61691.herokuapp.com/add-user", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userData),

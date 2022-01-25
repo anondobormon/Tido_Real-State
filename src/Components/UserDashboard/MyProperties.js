@@ -6,7 +6,7 @@ export const MyProperties = () => {
   const userId = localStorage.getItem("uid");
 
   useEffect(() => {
-    fetch("http://localhost:5000/userinfo")
+    fetch("https://calm-garden-61691.herokuapp.com/userinfo")
       .then((res) => res.json())
       .then((data) => {
         let userData = data.find((user) => user.uid === userId);

@@ -4,17 +4,17 @@ import { PropertyHeader } from "../HeaderOpt/PropertyHeader";
 import { UpdateProperty } from "../Home/UpdateProperty";
 import { Navbar } from "../Navbar/Navbar";
 import TestimonialSlider from "../TestimonialSlider/TestimonialSlider";
-import { AboutDetails } from "./AboutDetails";
+import Contact from "./Contact";
 
-export const About = () => {
+export default function ContactPage() {
   return (
     <div>
       <Navbar />
-      <PropertyHeader content={"About Us"} />
-      <AboutDetails />
+      <PropertyHeader content={"Contact With Us"} />
+      <Contact />
       <UpdateProperty />
       <TestimonialSlider />
       <Footer />
     </div>
   );
-};
+}

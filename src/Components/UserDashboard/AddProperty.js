@@ -24,7 +24,7 @@ export const AddProperty = () => {
     data["otherFeatures"] = features;
     data["image"] = imageURL;
     setFormData(data);
-    fetch("http://localhost:5000/upload", {
+    fetch("https://calm-garden-61691.herokuapp.com/upload", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

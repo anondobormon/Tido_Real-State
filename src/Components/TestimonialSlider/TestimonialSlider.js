@@ -14,7 +14,9 @@ export default function TestimonialSlider() {
   useEffect(() => {
     const getTestimonial = async () => {
       try {
-        const data = await axios.get("http://localhost:5000/api/reviews");
+        const data = await axios.get(
+          "https://calm-garden-61691.herokuapp.com/api/reviews"
+        );
         setTestimonial(data.data);
         console.log(data.data);
       } catch (error) {

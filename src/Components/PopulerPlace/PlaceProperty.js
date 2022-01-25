@@ -9,7 +9,7 @@ export const PlaceProperty = () => {
   const [loading, setLoading] = useState(true);
   const { city } = useParams();
   useEffect(() => {
-    fetch("http://localhost:5000/properties")
+    fetch("https://calm-garden-61691.herokuapp.com/properties")
       .then((res) => res.json())
       .then((data) => {
         let AllPropertyInCity = data.filter(

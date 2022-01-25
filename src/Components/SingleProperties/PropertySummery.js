@@ -17,10 +17,10 @@ export const PropertySummery = ({ property }) => {
         position: toast.POSITION.TOP_RIGHT,
       });
 
-      // http://localhost:5000
+      // https://calm-garden-61691.herokuapp.com
 
       // Send data to database
-      await fetch("http://localhost:5000/addbuy", {
+      await fetch("https://calm-garden-61691.herokuapp.com/addbuy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),

@@ -38,7 +38,7 @@ function TestimonialModal({ popups }) {
   const handleSubmit = async () => {
     try {
       await axios
-        .post("http://localhost:5000/api/reviews", formData)
+        .post("https://calm-garden-61691.herokuapp.com/api/reviews", formData)
         .then((res) => {
           console.log(res);
           window.location.reload();

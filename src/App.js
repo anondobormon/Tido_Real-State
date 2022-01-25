@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { About } from "./Components/About/About";
 import { Properties } from "./Components/AllProperties/Properties";
+import ContactPage from "./Components/Contact/ContactPage";
 import { LevelContext } from "./Components/Context";
 import { Home } from "./Components/Home/Home";
 import { LoginResister } from "./Components/LoginResister/LoginResister";
@@ -11,7 +12,6 @@ import { PlaceProperty } from "./Components/PopulerPlace/PlaceProperty";
 import ProtectedRoute from "./Components/PortectedRoute/ProtectedRoute";
 import { PropertyForm } from "./Components/PropertyForm/PropertyForm";
 import { SingleProperty } from "./Components/SingleProperties/SingleProperty";
-import TestimonialSlider from "./Components/TestimonialSlider/TestimonialSlider";
 import { DashboardAddProperty } from "./Components/UserDashboard/DashboradPages/DashboardAddProperty";
 import { DashboardAllProperty } from "./Components/UserDashboard/DashboradPages/DashboardAllProperty";
 import { DashboardUserProfile } from "./Components/UserDashboard/DashboradPages/DashboardUserProfile";
@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="testimonials" element={<TestimonialSlider />} />
+          <Route path="contact" element={<ContactPage />} />
           <Route path="login" element={<LoginResister />} />
           <Route path="/property/:id" element={<SingleProperty />} />
           <Route path="properties" element={<Properties />} />
